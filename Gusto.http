@@ -1,0 +1,53 @@
+### Créer un nouveau Shop
+POST http://localhost:5000/shop
+Content-Type: application/json
+
+{
+  "name": "Boulangerie Parisienne",
+  "location": "Paris"
+}
+
+### Récupérer les informations d'un Shop
+GET http://localhost:5000/shop/1
+
+### Connexion d'un Shop (exemple)
+POST http://localhost:5000/shop/connect
+Content-Type: application/json
+
+{
+  "shopId": 1,
+  "password": "s3cr3t"
+}
+
+### Créer un nouveau Produit
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+  "description": "Croissant au beurre",
+  "price": 1.50,
+  "shopId": 1
+}
+
+### Récupérer les informations d'un Produit
+GET http://localhost:5000/products/1
+
+### Créer une nouvelle Commande
+POST http://localhost:5000/order
+Content-Type: application/json
+
+{
+  "orderDate": "2024-08-20T15:00:00",
+  "products": [
+    {
+      "productId": 1,
+      "quantity": 2
+    }
+  ]
+}
+
+### Récupérer toutes les Commandes
+GET http://localhost:5000/order
+
+### Récupérer le QR Code d'une Commande
+GET http://localhost:5000/order/qr-code/1
